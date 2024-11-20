@@ -3204,6 +3204,7 @@ namespace Piccolo
 
     void VulkanRHI::destroyBuffer(RHIBuffer* &buffer)
     {
+        if (buffer == nullptr) return;
         vkDestroyBuffer(m_device, ((VulkanBuffer*)buffer)->getResource(), nullptr);
         RHI_DELETE_PTR(buffer);
     }
